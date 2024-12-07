@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HedefKonumMesafesi", "HedefKonumMesafesi\HedefKonumMesafesi.vcxproj", "{377C1F77-CE28-4593-B4E6-FF5972E60DF8}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TamBolunenCiftler", "TamBolunenCiftler\TamBolunenCiftler.vcxproj", "{A3BA43DA-CD94-46A7-8EF5-32D4495A9DAA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{377C1F77-CE28-4593-B4E6-FF5972E60DF8}.Release|x64.Build.0 = Release|x64
 		{377C1F77-CE28-4593-B4E6-FF5972E60DF8}.Release|x86.ActiveCfg = Release|Win32
 		{377C1F77-CE28-4593-B4E6-FF5972E60DF8}.Release|x86.Build.0 = Release|Win32
+		{A3BA43DA-CD94-46A7-8EF5-32D4495A9DAA}.Debug|x64.ActiveCfg = Debug|x64
+		{A3BA43DA-CD94-46A7-8EF5-32D4495A9DAA}.Debug|x64.Build.0 = Debug|x64
+		{A3BA43DA-CD94-46A7-8EF5-32D4495A9DAA}.Debug|x86.ActiveCfg = Debug|Win32
+		{A3BA43DA-CD94-46A7-8EF5-32D4495A9DAA}.Debug|x86.Build.0 = Debug|Win32
+		{A3BA43DA-CD94-46A7-8EF5-32D4495A9DAA}.Release|x64.ActiveCfg = Release|x64
+		{A3BA43DA-CD94-46A7-8EF5-32D4495A9DAA}.Release|x64.Build.0 = Release|x64
+		{A3BA43DA-CD94-46A7-8EF5-32D4495A9DAA}.Release|x86.ActiveCfg = Release|Win32
+		{A3BA43DA-CD94-46A7-8EF5-32D4495A9DAA}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

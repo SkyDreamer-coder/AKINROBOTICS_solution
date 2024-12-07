@@ -68,14 +68,15 @@ int main()
 			if (!found) {
 				visitedPoints.push_back(rb->currentPoint);
 			}
-			else {				
-				visitedPoints.push_back(rb->currentPoint + 1);
+			else {		
 				rb->currentPoint++;
+				visitedPoints.push_back(rb->currentPoint);				
 			}
 		}
 	}
 
 	// ziyaret edilen noktaları yazdırma
+	std::cout << "Robotun ugradigi noktalar: \n";
 	for (int elem : visitedPoints) {
 		std::cout << elem << " ";
 	}
