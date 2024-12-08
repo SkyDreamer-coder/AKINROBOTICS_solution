@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HedefKonumMesafesi", "Hedef
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TamBolunenCiftler", "TamBolunenCiftler\TamBolunenCiftler.vcxproj", "{A3BA43DA-CD94-46A7-8EF5-32D4495A9DAA}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MetinDuzenleyici", "MetinDuzenleyici\MetinDuzenleyici.vcxproj", "{F30750E4-97F7-4E51-A3C3-3373781AF9B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{A3BA43DA-CD94-46A7-8EF5-32D4495A9DAA}.Release|x64.Build.0 = Release|x64
 		{A3BA43DA-CD94-46A7-8EF5-32D4495A9DAA}.Release|x86.ActiveCfg = Release|Win32
 		{A3BA43DA-CD94-46A7-8EF5-32D4495A9DAA}.Release|x86.Build.0 = Release|Win32
+		{F30750E4-97F7-4E51-A3C3-3373781AF9B7}.Debug|x64.ActiveCfg = Debug|x64
+		{F30750E4-97F7-4E51-A3C3-3373781AF9B7}.Debug|x64.Build.0 = Debug|x64
+		{F30750E4-97F7-4E51-A3C3-3373781AF9B7}.Debug|x86.ActiveCfg = Debug|Win32
+		{F30750E4-97F7-4E51-A3C3-3373781AF9B7}.Debug|x86.Build.0 = Debug|Win32
+		{F30750E4-97F7-4E51-A3C3-3373781AF9B7}.Release|x64.ActiveCfg = Release|x64
+		{F30750E4-97F7-4E51-A3C3-3373781AF9B7}.Release|x64.Build.0 = Release|x64
+		{F30750E4-97F7-4E51-A3C3-3373781AF9B7}.Release|x86.ActiveCfg = Release|Win32
+		{F30750E4-97F7-4E51-A3C3-3373781AF9B7}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

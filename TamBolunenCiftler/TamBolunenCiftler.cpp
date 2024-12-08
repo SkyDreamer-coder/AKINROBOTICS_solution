@@ -46,7 +46,7 @@ int main()
 	std::cin >> n;
 
 	// bölme değeri
-	std::cout << "bolmek istediginiz sayıyı giriniz: (k)\n";
+	std::cout << "bolmek istediginiz sayiyi giriniz: (k)\n";
 	std::cin >> k;
 
 	int* arr = new int[n];	
