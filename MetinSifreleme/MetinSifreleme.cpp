@@ -75,7 +75,7 @@ int main()
     std::pair<std::string, int>* reshaped = new std::pair<std::string, int>();
 
     // dosya okuma işlemleri
-    *rs = fb.Read("metin2.txt");
+    *rs = fb.Read("metin.txt");
 
     // verinin reshape ve size işlemleri
     *reshaped = ReshapeAndFindSize(*rs);
