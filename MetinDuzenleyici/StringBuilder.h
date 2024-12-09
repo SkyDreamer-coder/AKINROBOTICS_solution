@@ -22,6 +22,16 @@ namespace StandartString
 		{
 			std::cout << stringVal << std::endl;
 		}
+		// deðiþkenin ilk k adet karakteri yazýlýr
+		void Print(int k) {
+			if (!stringVal.empty()) {
+				std::cout << stringVal.substr(0, k);
+			}
+			else {
+				std::cerr << "deger bos." << std::endl;
+			}
+			
+		}
 		// strik deðiþkene ekleme yapar.
 		void Add(std::string input) {
 			_undo = stringVal;
@@ -32,8 +42,15 @@ namespace StandartString
 		void Delete(int n) {
 			_undo = stringVal;
 			if (!stringVal.empty()) {
-				stringVal.erase(stringVal.size() - n);
-				Print();
+				if (n > stringVal.size())
+				{
+					std::cerr << "index boyutu gecildi." << std::endl;
+				}
+				else
+				{
+					stringVal.erase(stringVal.size() - n);
+					Print();
+				}				
 			}
 			else {
 				std::cerr << "deger zaten bos" << std::endl;

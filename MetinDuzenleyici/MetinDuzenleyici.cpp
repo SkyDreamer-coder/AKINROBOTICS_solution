@@ -61,7 +61,10 @@ int main()
             break;
         // print işlemi
         case 'p':
-            sb.Print();
+            int l;
+            std::cout << "kac karaktere kadar yazdirmak istiyorsunuz: ";
+            std::cin >> l;
+            sb.Print(l);
 
             break;
         // undo işlemi
@@ -80,7 +83,7 @@ int main()
         case 'r':
             std::cout << "okunacak dosya adini girin: (orn. (Metinler.txt))\n";
             std::cin >> readFileName;
-            fb.Read(readFileName);
+            sb.Add(fb.Read(readFileName));
 
             break;
         // program sonlandırma işlemi.

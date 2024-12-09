@@ -18,7 +18,7 @@ namespace FileEditor {
 			std::ifstream readedFile(filename, std::ios::in);
 			if (readedFile.is_open()) {
 				std::string data;
-				std::cout << "Dosya icerigi:\n";
+				std::cout << "Okunan dosya icerigi:\n";
 				while (std::getline(readedFile, data)) { // Satýr satýr okuma
 					val->append(data);
 					std::cout << data << "\n";

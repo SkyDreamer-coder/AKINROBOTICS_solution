@@ -46,6 +46,8 @@ int main()
 	// ziyaret edilen pointler
 	std::list<int> visitedPoints;
 
+	std::cout << "Mini Ada robot gezisi baslatiliyor...\n";
+
 	// robot gezdirme
 	for (int i = 0; i < rb->numberOfTravel; i++) {
 

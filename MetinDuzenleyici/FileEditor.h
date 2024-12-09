@@ -23,15 +23,18 @@ namespace FileEditor {
 			}
 		}
 		// kullanýcýdan aldýðý dosya adýnýna göre dosyayý okur.
-		void Read(std::string filename) {
+		std::string Read(std::string filename) {
+			std::string val;
 			std::ifstream readedFile(filename);
 			if (readedFile.is_open()) {
 				std::string data;
 				std::cout << "Dosya icerigi:\n";
 				while (std::getline(readedFile, data)) { // Satýr satýr okuma
+					val.append(data);
 					std::cout << data << "\n";
 				}
 				readedFile.close(); // Dosya kapatýlýr
+				return val;
 			}
 			else {
 				std::cerr << "dosya okunamadi.\n";

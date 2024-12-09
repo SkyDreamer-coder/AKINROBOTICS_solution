@@ -14,7 +14,7 @@ static int randomNumberGenerator()
 {
 	std::random_device rd;
 	std::mt19937 gen(rd());
-	std::uniform_int_distribution<> generateNumber(-999, 1000);
+	std::uniform_int_distribution<> generateNumber(-999, 999);
 
 	return generateNumber(gen);
 }
@@ -36,18 +36,27 @@ static std::list<std::pair<int, int>> findDivisibleByDivisor(int *arr, int size,
 
 int main()
 {
+
 	int n, k;
 
 	//bölünebilen indisleri tutan liste.
 	std::list<std::pair<int, int>> divisibles;
+	while (true) {
+		// array boyutu
+		std::cout << "array boyutunu giriniz: (n) !(2 < n < 1000)\n";
+		std::cin >> n;
 
-	// array boyutu
-	std::cout << "array boyutunu giriniz: (n) \n";
-	std::cin >> n;
+		// bölme değeri
+		std::cout << "bolmek istediginiz sayiyi giriniz: (k) !(1 < k < 100)\n";
+		std::cin >> k;
 
-	// bölme değeri
-	std::cout << "bolmek istediginiz sayiyi giriniz: (k)\n";
-	std::cin >> k;
+		if (n <= 2 || n >= 1000 || k <= 1 || k >= 100)
+		{
+			std::cout << "hatali girdi. lutfen tekrar deneyin.\n";
+		}
+		else
+			break;
+	}	
 
 	int* arr = new int[n];	
 
@@ -67,7 +76,7 @@ int main()
 		std::cout << arr[i] << std::endl;
 	}
 	// k'ya tam bölünebilen indislerin yazdırılması
-	std::cout << "\nk'ya tam bolunebilen indisler:\n\n";
+	std::cout << "\nk'ya tam bolunebilen indis ciftleri:\n\n";
 	for (const auto& idx : divisibles) {
 		std::cout << "(" << idx.first << ", " << idx.second << ")\n";
 	}
