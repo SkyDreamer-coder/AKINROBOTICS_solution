@@ -1,7 +1,7 @@
 ﻿// MetinSifreleme.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
-// Umut Can Altıntaş 09/12/2024
+// Umut Can Altıntaş 14/12/2024
 
 // Metin Şifreleme
 
@@ -11,16 +11,16 @@
 #include <utility>
 #include "FileEditor.h"
 
-static std::pair<std::string, int> ReshapeAndFindSize(std::string& input) {
+static std::pair<std::wstring, int> ReshapeAndFindSize(std::wstring& input) {
 
-    std::pair<std::string, int>* reshaped = new std::pair<std::string, int>();
+    std::pair<std::wstring, int>* reshaped = new std::pair<std::wstring, int>();
 
     for (int i = 0; i < input.length(); i++) {
         if (isblank(input[i]))
             input.erase(i, 1);
     }
 
-    *reshaped = std::make_pair(input, input.size() - 1);
+    *reshaped = std::make_pair(input, input.size());
     
     return *reshaped;
 }
@@ -28,41 +28,42 @@ static std::pair<std::string, int> ReshapeAndFindSize(std::string& input) {
 // matrix satır ve sütun blogların bulunması
 static std::pair<int, int> FindMatrixCols(int l)
 {
-    int m = 0;
-    int n = 0;
+    int m = std::floor(std::sqrt(l)); // m değerini alt değere yuvarlama
+    int n = std::ceil(std::sqrt(l)); // n değerini üst değere yuvarlama
 
-    m = std::ceil(std::sqrt(l));
-    n = std::ceil(std::sqrt(l));
+    if (m * n < l) // m x n matrixin değer uzunluğa uygunluk kontrolü
+        m = std::ceil(std::sqrt(l)); // uygunluk sağlanmadığında m değerini üste yuvarlama
+
     return std::make_pair(m, n);
 }
 
-// string ifadeden 2 boyutlu char array 'a değer atanıp ekrana yazılması
-static void PrintMatrix(std::string& input, int m, int n)
+// wstring ifadenin "m x n" array matrisli şekilde yazılması
+static void PrintMatrix(std::wstring& input, int m, int n)
 {
-    // 2 boyutlu dinamik char array
-    char** array = new char* [m];
+    // 2 boyutlu dinamik wchar_t(16 bitlik unicode değerler için) array oluştur
+    wchar_t** matrix = new wchar_t* [m];
     for (int i = 0; i < m; i++) {
-        array[i] = new char[n]; 
+        matrix[i] = new wchar_t[n];
     }
 
-    std::cout << "\nMatrixlenmis hali:\n";
     int index = 0;
+    // Matrisi yazdır
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < n; j++) {
-            if (index <= input.size() - 1) // out of index error kontrolü
-            {
-                array[i][j] = input[index++];
-                std::cout << array[i][j];
-            }
+            if (index < input.size()) {
+                matrix[i][j] = input.at(index++);
+                std::wcout << matrix[i][j];
+            }            
         }
         std::cout << std::endl;
     }
 
-    // dinamik belleği serbest bırakma işlemi
+    // Belleği temizle
     for (int i = 0; i < m; i++) {
-        delete[] array[i];
+        delete[] matrix[i];
     }
-    delete[] array;
+    delete[] matrix;
+    
 }
 
 int main()
@@ -71,8 +72,9 @@ int main()
     std::setlocale(LC_ALL, "tr_TR.UTF-8");
     FileEditor::FileBuilder fb;
 
-    std::string* rs = new std::string();
-    std::pair<std::string, int>* reshaped = new std::pair<std::string, int>();
+    // okunan verinin unicode değerleri tutan yapı
+    std::wstring* rs = new std::wstring();
+    std::pair<std::wstring, int>* reshaped = new std::pair<std::wstring, int>(); // okunan verinin reshaped halini ve yeni size ı tutan yapı.
 
     // dosya okuma işlemleri
     *rs = fb.Read("metin.txt");
@@ -80,7 +82,7 @@ int main()
     // verinin reshape ve size işlemleri
     *reshaped = ReshapeAndFindSize(*rs);
     std::cout << "\nbosluklar silinmis ve resize edilmis hali ve uzunlugu(l):\n";
-    std::cout << reshaped->first << "," << reshaped->second << std::endl;
+    std::wcout << reshaped->first << "," << reshaped->second << std::endl;
 
     std::pair<int,int> cols = FindMatrixCols(reshaped->second);
     std::cout << "\narray matrisleri:\n";

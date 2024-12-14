@@ -2,6 +2,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <locale>
+#include <codecvt>
 
 namespace FileEditor {
 	// dosya okuma - yazma iþlemlerinin implemente edildiði yer.
@@ -11,21 +13,21 @@ namespace FileEditor {
 		FileBuilder();
 		
 		// kullanýcýdan aldýðý dosya adýnýna göre dosyayý okur.
-		std::string Read(std::string filename) {
+		// wstring tipi türkçe karakter okuma ve size iþlemlerini doðru bulma için gerekli
+		std::wstring Read(std::string filename) {	
 
-			std::string* val = new std::string();
+			std::wifstream readedFile(filename);
+			readedFile.imbue(std::locale("tr_TR.UTF-8")); // okunan dosya içeriðini tr utf-8 formatýna set ediyoruz.
 
-			std::ifstream readedFile(filename, std::ios::in);
 			if (readedFile.is_open()) {
-				std::string data;
+				std::wstring* data = new std::wstring();
 				std::cout << "Okunan dosya icerigi:\n";
-				while (std::getline(readedFile, data)) { // Satýr satýr okuma
-					val->append(data);
-					std::cout << data << "\n";
+				while (std::getline(readedFile, *data)) { // Satýr satýr okuma
+					std::wcout << *data << "\n";
 				}
 				readedFile.close(); // Dosya kapatýlýr
 
-				return *val;
+				return *data;
 			}
 			else {
 				std::cerr << "dosya okunamadi.\n";
