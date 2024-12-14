@@ -88,6 +88,7 @@ int main()
     std::cout << "\narray matrisleri:\n";
     std::cout << cols.first << "," << cols.second << std::endl;
 
+    std::cout << "\nmatrixlenmis hali:\n";
     // 2 boyutlu matris'in yazdırılması
     PrintMatrix(reshaped->first, cols.first, cols.second);
 
